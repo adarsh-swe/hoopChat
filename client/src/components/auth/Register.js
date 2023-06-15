@@ -29,7 +29,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 		}
 	};
 	if (isAuthenticated) {
-		return <Navigate replace to="/dashboard" />;
+		return <Navigate to="/dashboard" />;
 	}
 	return (
 		<section className=" container">
