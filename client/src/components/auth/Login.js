@@ -25,7 +25,7 @@ const Login = ({ login, isAuthenticated }) => {
 		return <Navigate replace to="/dashboard" />;
 	}
 	return (
-		<Fragment>
+		<section className="container">
 			<h1 className="large text-primary">Sign In</h1>
 			<p className="lead">
 				<i className="fas fa-user"></i>Sign into Your Account
@@ -60,7 +60,7 @@ const Login = ({ login, isAuthenticated }) => {
 			<p className="my-1">
 				Don't an account? <Link to="/register">Sign Up</Link>
 			</p>
-		</Fragment>
+		</section>
 	);
 };
 
