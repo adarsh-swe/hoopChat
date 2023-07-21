@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getCurrentProfile } from "../../actions/profile";
+import DashboardActions from "./DashboardActions";
 import Spinner from "../layout/Spinner";
 
 const Dashboard = ({
@@ -12,7 +13,7 @@ const Dashboard = ({
 }) => {
 	useEffect(() => {
 		getCurrentProfile();
-	}, []);
+	}, [getCurrentProfile]);
 
 	return loading && profile === null ? (
 		<Spinner />
@@ -23,7 +24,9 @@ const Dashboard = ({
 				<i class="fas fa-user"></i> Welcome {user && user.name}
 			</p>
 			{profile != null ? (
-				<Fragment>has</Fragment>
+				<Fragment>
+					<DashboardActions />
+				</Fragment>
 			) : (
 				<Fragment>
 					<p>
@@ -34,18 +37,6 @@ const Dashboard = ({
 					</Link>
 				</Fragment>
 			)}
-			<div class="dash-buttons">
-				<a href="edit-profile.html" class="btn btn-light">
-					<i class="fas fa-user-circle text-primary"></i> Edit Profile
-				</a>
-				<a href="add-experience.html" class="btn btn-light">
-					<i class="fab fa-black-tie text-primary"></i> Post a run
-				</a>
-				<a href="add-education.html" class="btn btn-light">
-					<i class="fas fa-graduation-cap text-primary"></i> Add
-					Education
-				</a>
-			</div>
 		</section>
 	);
 };
