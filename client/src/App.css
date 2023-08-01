@@ -305,7 +305,7 @@ button {
 	align-items: center;
 	padding: 0.7rem 2rem;
 	position: fixed;
-	z-index: 1;
+	z-index: 10;
 	width: 100%;
 	top: 0;
 	border-bottom: solid 1px var(--primary-color);
@@ -328,6 +328,12 @@ button {
 
 .navbar .welcome span {
 	margin-right: 0.6rem;
+}
+
+.mapbox-container {
+	width: 100%;
+	height: 800px;
+	padding-top: 1rem;
 }
 
 /* Landing Page */
@@ -461,7 +467,7 @@ button {
 
 .post {
 	display: grid;
-	grid-template-columns: 1fr 4fr;
+	grid-template-columns: 1fr 4fr 1fr;
 	grid-gap: 2rem;
 	align-items: center;
 }
@@ -486,6 +492,15 @@ button {
 	color: #aaa;
 	font-size: 0.8rem;
 	margin-bottom: 0.5rem;
+}
+.post .map {
+	height: 100%;
+	width: 100%;
+}
+
+.post .map-image {
+	width: 100%;
+	height: 100%;
 }
 
 /* Mobile Styles */

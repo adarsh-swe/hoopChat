@@ -50,6 +50,12 @@ const PostSchema = new Schema({
 		type: Date,
 		default: Date.now,
 	},
+	longitude: {
+		type: String,
+	},
+	latitude: {
+		type: String,
+	},
 });
 
 module.exports = Post = mongoose.model("post", PostSchema);

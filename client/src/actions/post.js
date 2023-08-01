@@ -8,6 +8,7 @@ import {
 	GET_POST,
 	ADD_COMMENT,
 	REMOVE_COMMENT,
+	UPDATE_LOCATION,
 } from "./types";
 import axios from "axios";
 
@@ -96,7 +97,12 @@ export const deletePost = (id) => async (dispatch) => {
 // Add post
 export const addPost = (formData) => async (dispatch) => {
 	try {
-		const res = await axios.post("/api/posts", formData);
+		const data = {
+			text: formData.text,
+			longitude: formData.location.longitude,
+			latitude: formData.location.latitude,
+		};
+		const res = await axios.post("/api/posts", data);
 
 		dispatch({
 			type: ADD_POST,
@@ -177,4 +183,14 @@ export const deleteComment = (postId, commentId) => async (dispatch) => {
 			},
 		});
 	}
+};
+
+export const updateLocation = (lng, lat) => (dispatch) => {
+	dispatch({
+		type: UPDATE_LOCATION,
+		payload: {
+			longitude: lng,
+			latitude: lat,
+		},
+	});
 };

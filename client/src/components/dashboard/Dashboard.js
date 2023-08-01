@@ -1,10 +1,13 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+
 import { connect } from "react-redux";
 import { getCurrentProfile } from "../../actions/profile";
 import DashboardActions from "./DashboardActions";
 import Spinner from "../layout/Spinner";
+import ProfileTop from "../profiles/ProfileTop";
+import ProfileAbout from "../profiles/ProfileAbout";
 
 const Dashboard = ({
 	getCurrentProfile,
@@ -19,13 +22,15 @@ const Dashboard = ({
 		<Spinner />
 	) : (
 		<section className="container">
-			<h1 class="large text-primary">Dashboard</h1>
-			<p class="lead">
-				<i class="fas fa-user"></i> Welcome {user && user.name}
+			<h1 className="large text-primary">Dashboard</h1>
+			<p className="lead">
+				<i className="fas fa-user"></i> Welcome {user && user.name}
 			</p>
 			{profile != null ? (
 				<Fragment>
 					<DashboardActions />
+					<ProfileTop profile={profile} />
+					<ProfileAbout profile={profile} />
 				</Fragment>
 			) : (
 				<Fragment>

@@ -10,7 +10,18 @@ const PostItem = ({
 	removeLike,
 	deletePost,
 	auth,
-	post: { _id, text, name, avatar, user, likes, comments, date },
+	post: {
+		_id,
+		text,
+		name,
+		avatar,
+		user,
+		likes,
+		comments,
+		date,
+		longitude,
+		latitude,
+	},
 }) => (
 	<div className="post bg-white p-1 my-1">
 		<div>
@@ -55,6 +66,17 @@ const PostItem = ({
 					<i className="fas fa-times" />
 				</button>
 			)}
+		</div>
+		<div className="map">
+			<a
+				href={`http://maps.google.com/maps?z=17&t=m&q=loc:${latitude}+${longitude}`}
+			>
+				<img
+					alt="static Mapbox map of a post"
+					src={`https://api.mapbox.com/styles/v1/adapat/clkdb9gth007301qw3fbucjgv/static/${longitude},${latitude},17,0.00,0.00/1000x600@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`}
+					className="map-image"
+				></img>
+			</a>
 		</div>
 	</div>
 );
